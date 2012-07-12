@@ -5,7 +5,7 @@
     init: (ed, url) ->
       ed.addCommand 'mceUploadImage', ->
         ed.windowManager.open {
-            file:   url + '/dialog.html',
+            file:   url + '/dialog.html?token=' + $('meta[name="csrf-token"]').attr('content'),
             width:  320 + parseInt(ed.getLang('uploadimage.delta_width', 0)),
             height: 180 + parseInt(ed.getLang('uploadimage.delta_height', 0)),
             inline: 1
