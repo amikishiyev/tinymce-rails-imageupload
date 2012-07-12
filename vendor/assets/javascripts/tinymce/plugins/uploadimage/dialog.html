@@ -44,7 +44,8 @@
         },
 
         insert: function() {
-          document.getElementById("authenticity_token").value = $("meta[name='csrf-token']").attr('content');
+          var match = /token=([^&]+)/i.exec(document.location+'')
+          document.getElementById("authenticity_token").value = match[1];
           document.forms[0].submit();
         }
       };
